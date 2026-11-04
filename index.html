@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KEYFRAMESZ STUDIOS — Multimedia Production & AI Intelligence</title>
-  <meta name="description" content="KEYFRAMESZ STUDIOS is an Eswatini multimedia production studio. Broadcast design, motion infographics, brand identity, digital & social content, virtual studios, and AI-powered agents — professional workload, AI intelligence." />
+  <title>Keyframesz Studios — Multimedia Production & AI Intelligence</title>
+  <meta name="description" content="Keyframesz Studios is an Eswatini multimedia production studio. Broadcast design, motion infographics, brand identity, digital & social content, virtual studios, and AI-powered agents — professional workload, AI intelligence." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -106,6 +106,22 @@
     .nav-links { display: flex; align-items: center; gap: 34px; }
     .nav-links a { font-size: 0.85rem; font-weight: 700; color: #a1a1aa; transition: color 0.2s; }
     .nav-links a:hover { color: #ffffff; }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .nav-toggle-line {
+      width: 24px; height: 2px; background: #ffffff; border-radius: 2px; transition: all 0.3s;
+    }
+    .nav-toggle.active .nav-toggle-line:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    .nav-toggle.active .nav-toggle-line:nth-child(2) { opacity: 0; }
+    .nav-toggle.active .nav-toggle-line:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
     .nav-cta {
       background: #ffffff; color: #000000;
       padding: 10px 24px; border-radius: 10px;
@@ -301,10 +317,40 @@
       .hero { padding: 120px 0 80px; }
       .hero-visual { height: 400px; }
       .section-head h2 { font-size: 2.25rem; }
-      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-links {
+        position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+        background: var(--ink); border-left: 1px solid var(--border);
+        flex-direction: column; align-items: flex-start; gap: 0;
+        padding: 80px 24px 40px; transition: right 0.35s ease; z-index: 1000;
+      }
+      .nav-links.open { right: 0; }
+      .nav-links a { display: block; padding: 14px 0; font-size: 1rem; border-bottom: 1px solid var(--border); width: 100%; }
+      .nav-cta { display: none; }
       .cta { padding: 70px 0; }
       .process-step { padding-left: 44px; }
       .step-number { font-size: 2rem; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 80px 0; }
+      .hero { padding: 110px 0 70px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { height: 320px; }
+      .services-grid, .pricing-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr; }
+      .work-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-col { max-width: none; }
+      .btn { min-height: 52px; padding: 14px 24px; font-size: 0.95rem; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      .section { padding: 60px 0; }
+      .hero { padding: 100px 0 60px; }
+      .section-head h2 { font-size: 1.8rem; }
+      .work-filters { gap: 6px; }
+      .filter-btn { padding: 6px 14px; font-size: 0.75rem; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
     }
   </style>
 </head>
@@ -319,8 +365,8 @@
   <nav id="navbar">
     <div class="container">
       <a href="#home" class="logo">
-        <img class="logo-mark" src="keyframe-03.png" alt="KEYFRAMESZ STUDIOS logo" />
-        KEYFRAMESZ STUDIOS
+        <img class="logo-mark" src="assets/logos/keyframesz-studios-logo-soft-geometric-v3.svg" alt="Keyframesz Studios logo" />
+        Keyframesz Studios
       </a>
       <div class="nav-links">
         <a href="#services">Services</a>
@@ -328,6 +374,11 @@
         <a href="#process">Process</a>
         <a href="#contact">Contact</a>
       </div>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+      </button>
       <a href="#contact" class="nav-cta">Start a project</a>
     </div>
   </nav>
@@ -574,7 +625,7 @@
           </div>
         </div>
         <div class="work-item reveal reveal-delay-3" data-category="brand">
-          <div class="work-image">KEYFRAME DASHBOARD</div>
+          <div class="work-image">Keyframesz Dashboard</div>
           <div class="work-content">
             <div class="work-tag">Brand Systems · UI Design · 2026</div>
             <h4>Brand Identity & Dashboard</h4>
@@ -651,8 +702,8 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img class="logo-mark" src="keyframe-03.png" alt="KEYFRAMESZ STUDIOS logo" />
-          KEYFRAMESZ STUDIOS
+          <img class="logo-mark" src="assets/logos/keyframesz-studios-logo-soft-geometric-v3.svg" alt="Keyframesz Studios logo" />
+          Keyframesz Studios
         </div>
         <div class="footer-desc">Multimedia production and AI intelligence for Eswatini. Every medium, one studio — professional workload, AI intelligence.</div>
         <div class="footer-col">
@@ -683,7 +734,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© KEYFRAMESZ STUDIOS — Multimedia & AI Intelligence · 2026</p>
+        <p>© Keyframesz Studios — Multimedia & AI Intelligence · 2026</p>
         <p>Built with intent</p>
       </div>
     </div>
@@ -724,6 +775,20 @@
         if (target) {
           target.scrollIntoView({ behavior: 'smooth' });
         }
+      });
+    });
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.classList.toggle('active');
+      navLinks.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.classList.remove('active');
+        navLinks.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
       });
     });
   </script>
