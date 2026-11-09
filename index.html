@@ -528,6 +528,55 @@
       justify-content: center; flex-wrap: wrap;
     }
 
+    /* ============ TRUST BAR ============ */
+    .trust-bar {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .trust-bar .container {
+      text-align: center;
+    }
+    .trust-kicker {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #a1a1aa;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .trust-headline {
+      font-weight: 800;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: #ffffff;
+      margin-bottom: 40px;
+      letter-spacing: -0.02em;
+    }
+    .client-logos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    .client-logo {
+      opacity: 0.35;
+      filter: grayscale(100%);
+      transition: all var(--dur-base) var(--ease-out);
+      max-width: 140px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .client-logo:hover {
+      opacity: 1;
+      filter: grayscale(0%);
+      transform: translateY(-4px);
+    }
+
     /* ============ FOOTER ============ */
     footer {
       border-top: 1px solid var(--border);
@@ -1050,6 +1099,17 @@
           </ul>
         </div>
       </div>
+
+      <!-- Trusted by -->
+      <section class="trust-bar reveal">
+        <span class="trust-kicker">Trusted by</span>
+        <h2 class="trust-headline">Clinics & organizations we've worked with</h2>
+        <div class="client-logos">
+          <img class="client-logo" src="assets/images/clients/clinic-01.png" alt="Clinic partner logo" />
+          <img class="client-logo" src="assets/images/clients/clinic-02.png" alt="Clinic partner logo" />
+        </div>
+      </section>
+
       <div class="footer-bottom">
         <p>© Keyframesz Studios — Multimedia & AI Intelligence · 2026</p>
         <p>Built with intent</p>
