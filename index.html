@@ -81,17 +81,62 @@
     .glow {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       z-index: -1; overflow: hidden; pointer-events: none;
+      background:
+        radial-gradient(ellipse at 20% 0%, rgba(245, 158, 11, 0.06) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 100%, rgba(79, 70, 229, 0.05) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.02) 0%, transparent 50%);
+    }
+    /* Subtle grain texture for tactility */
+    .glow::before {
+      content: "";
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 1;
+    }
+    /* Soft vignette so edges feel contained */
+    .glow::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, transparent 0%, rgba(0,0,0,0.5) 70%);
+      pointer-events: none; z-index: 2;
     }
     .glow-blob {
       position: absolute; border-radius: 50%; filter: blur(80px);
-      opacity: 0.12; animation: float 14s ease-in-out infinite;
+      opacity: 0.10; animation: float 14s ease-in-out infinite;
     }
-    .blob-1 { top: -10%; left: -10%; width: 600px; height: 600px; background: #ffffff; animation-delay: 0s; }
-    .blob-2 { bottom: -10%; right: -10%; width: 700px; height: 700px; background: #a1a1aa; animation-delay: -7s; }
-    .blob-3 { top: 30%; left: 40%; width: 450px; height: 450px; background: #ffffff; animation-delay: -3s; }
-    @keyframes float {
+    .blob-1 { top: -12%; left: -12%; width: 700px; height: 700px; background: #f59e0b; animation-delay: 0s; animation-name: float-1; }
+    .blob-2 { bottom: -12%; right: -12%; width: 800px; height: 800px; background: #4f46e5; animation-delay: -6s; animation-name: float-2; }
+    .blob-3 { top: 25%; left: 30%; width: 500px; height: 500px; background: #ec4899; animation-delay: -3s; animation-name: float-3; }
+    .blob-4 { bottom: 18%; left: 18%; width: 600px; height: 600px; background: #06b6d4; animation-delay: -9s; animation-name: float-4; }
+    .blob-5 { top: 8%; right: 20%; width: 400px; height: 400px; background: #f59e0b; animation-delay: -12s; animation-name: float-5; }
+    .blob-6 { bottom: 35%; right: 30%; width: 550px; height: 550px; background: #8b5cf6; animation-delay: -15s; animation-name: float-6; }
+    @keyframes float-1 {
       0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(24px, -40px) scale(1.08); }
+      33% { transform: translate(30px, -40px) scale(1.1); }
+      66% { transform: translate(-20px, 30px) scale(0.95); }
+    }
+    @keyframes float-2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(-40px, 50px) scale(1.05); }
+      75% { transform: translate(20px, -30px) scale(0.95); }
+    }
+    @keyframes float-3 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(15px, -35px) scale(1.12); }
+    }
+    @keyframes float-4 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      40% { transform: translate(-30px, 45px) scale(1.08); }
+      80% { transform: translate(10px, -20px) scale(0.92); }
+    }
+    @keyframes float-5 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      60% { transform: translate(25px, -25px) scale(1.06); }
+    }
+    @keyframes float-6 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      45% { transform: translate(-15px, 35px) scale(1.09); }
+      90% { transform: translate(5px, -10px) scale(0.94); }
     }
 
     /* ============ NAV ============ */
